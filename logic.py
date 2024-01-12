@@ -108,7 +108,7 @@ class And(Sentence):
 
     def add(self, conjunct):
         Sentence.validate(conjunct)
-        self.conjuncts.add(conjunct)
+        self.conjuncts.append(conjunct)
 
     def evaluate(self, model):
         return all(conjunct.evaluate(model) for conjunct in self.conjuncts)
