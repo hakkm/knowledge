@@ -129,7 +129,7 @@ class Or(Sentence):
     def __init__(self, *disjuncts):
         for disjunct in disjuncts:
             Sentence.validate(disjunct)
-        self.disjuncts = set(disjuncts)
+        self.disjuncts = list(disjuncts)
 
     def __eq__(self, other):
         return isinstance(other, Or) and self.disjuncts == other.disjuncts
@@ -143,7 +143,7 @@ class Or(Sentence):
 
     def add(self, disjunct):
         Sentence.validate(disjunct)
-        self.disjuncts.add(disjunct)
+        self.disjuncts.append(disjunct)
 
     def evaluate(self, model):
         return any(disjunct.evaluate(model) for disjunct in self.disjuncts)
