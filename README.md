@@ -238,3 +238,39 @@ Let's implement CNF To determine if KB entails α:
 - Keep checking if we can derive the empty clause using resolution.
     - If ever we produce the empty clause, then KB entails α.
     - Otherwise, KB does not entail α.
+
+# First Order Logic 
+Propositional logic is not expressive enough to represent all the knowledge we have about the world.
+So we need to introduce First Order Logic.
+
+- Constant Symbols: e.g. Alice, Bob, Cindy, Jack, Red, Green, Blue, Yellow
+- Predicate Symbols: e.g. Person, House, BelongsTo 
+
+Predicate symbols are properties that might be true or false about constants
+
+How sentences are constructed in First Order Logic?
+Person(Alice) = Alice is a person 
+House(Red) = Red is a house
+¬House(Alice) = Alice is not a house
+BelongsTo(Alice, Red) = Alice belongs to Red
+
+---
+Some other features of First Order Logic:
+## Quantifiers
+### Universal Quantification 
+∀x. BelongsTo(x, Red) → ¬BelongsTo(x, Blue)
+means: For all x, if x belongs to Red, then x does not belong to Blue.
+Or: Anyone in Red house is not in Blue house.
+
+### Existential Quantification
+∃x. House(x) ∧ BelongsTo(Alice, x)
+means: There exists an x, such that x is a house and Alice belongs to x.
+Or: Alice belongs to a house.
+
+### Example: 
+∀x. Person(x) → ∃y. House(y) ∧ BelongsTo(x, y)
+means: For all x, if x is a person, then there exists a y, such that y is a house and x belongs to y.
+Or: Everyone belongs to a house.
+
+
+
